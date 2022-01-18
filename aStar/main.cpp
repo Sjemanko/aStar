@@ -134,7 +134,7 @@ int aStar_alg(){
         for (int i = 0; i < 20; i++) {
             for (int j = 0; j < 20; j++) {
                 if (openList[i][j]) {
-                    if (nextWeight == -1 || n[i][j].weight < nextWeight) {
+                    if (nextWeight == -1 || n[i][j].weight <= nextWeight) {
                         nextX = j;
                         nextY = i;
                         nextWeight = n[i][j].weight;
