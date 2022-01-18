@@ -12,7 +12,6 @@ using namespace std;
 #define START_POZY 19
 
 #define OBSTACLE 5
-
 struct Node {
     int value;
     int poz_x;
@@ -91,7 +90,7 @@ int aStar_alg(){
                 }
             }
         }
-
+        // Badanie zakresow tablicy 20x20
         if (x != 19) {
             if (isValid(n[y][x + 1])) {
                 if(heuristic_calculations(n[y][x + 1]) < heuristic_calculations(n[y][x])){
@@ -127,7 +126,7 @@ int aStar_alg(){
                 }
             }
         }
-
+        //Ustawienie kolejnych node'ów
         nextX = -1;
         nextY = -1;
         nextWeight = -1;
@@ -158,7 +157,7 @@ int aStar_alg(){
     x = END_POZX;
     y = END_POZY;
 
-
+    // Powrot do punktu startowego
     while (!(x == START_POZX && y == START_POZY)) {
         n[y][x].value = 3;
         nextX = n[y][x].parent_pozX;
@@ -168,6 +167,7 @@ int aStar_alg(){
     }
     n[y][x].value = 3;
 
+    // wyœwietlanie trasy
     cout << "Trasa: \n";
     for (int i = 0; i < 20; i++) {
         for (int j = 0; j < 20; j++) {
